@@ -24,7 +24,7 @@ def action_to_number(action):
     elif action == "scissors":
         return 4
     else:
-        return "Wrong action"
+        return "q"
 
 
 def number_to_action(number):
@@ -41,6 +41,8 @@ def number_to_action(number):
         return "lizard"
     elif number == 4:
         return "scissors"
+    else:
+        return "q"
 
 
 def rpsls():
@@ -53,21 +55,22 @@ def rpsls():
     print("Welcome", player_name)
     while True:
         player_action = input("What's your action:>")
-        player_number = action_to_number(player_action)
-        print(" ")
-        print(player_name, "chooses", player_action)
+        try:
+            player_number = action_to_number(player_action)
+            computer_number = random.randrange(0, 5)
+            winner = (player_number - computer_number) % 5
+        except:
+            print(" ")
+            print("Bad choice", player_action)
+            break
         if player_action == "q":
             break
-        elif player_number == "Wrong action":
-            print(" ")
-            print("Wrong action")
-            break
         print(" ")
-        computer_number = random.randrange(0, 5)
+        print(player_name, "chooses", player_action)
+        print(" ")
         computer_action = number_to_action(computer_number)
         print("Computer chooses", computer_action)
         print(" ")
-        winner = (player_number - computer_number) % 5
         if winner == 0:
             print("It's a tie, Please try again.")
         elif winner <= 2:
