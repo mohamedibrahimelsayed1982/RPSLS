@@ -52,7 +52,9 @@ def rpsls():
     """
     player_name = input("What's your name Soldier:>")
     print(" ")
-    print("Welcome", player_name)
+    print("Please Choose Your Action from the list", player_name)
+    print("[rock, paper, scissors, lizard, Spock]")
+    print("or q to exit")
     while True:
         player_action = input("What's your action:>")
         try:
@@ -61,10 +63,17 @@ def rpsls():
             winner = (player_number - computer_number) % 5
         except:
             print(" ")
-            print("Bad choice", player_action)
+            print(player_name, player_action, "is a wrong action")
             break
         if player_action == "q":
             break
+        print(" ")
+        print("rock")
+        print("paper")
+        print("scissors")
+        print("lizard")
+        print("Spock")
+        print("Shoot")
         print(" ")
         print(player_name, "chooses", player_action)
         print(" ")
@@ -78,7 +87,7 @@ def rpsls():
         elif winner > 2:
             print("Computer Win!")
     print(" ")
-    print("Thanks and goodbye, hope to see you soon!")
+    print("Thanks", player_name, "and goodbye, hope to see you soon!")
 
 
 print(" ")
@@ -100,7 +109,4 @@ print("And as it always has been")
 print(" ")
 print("Rock crushes scissors")
 print(" ")
-print("Please Choose Your Action from the list")
-print("[rock, paper, scissors, lizard, Spock]")
-print("or q to exit")
 rpsls()
